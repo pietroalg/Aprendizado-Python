@@ -1,100 +1,53 @@
-def soma_inteiro(n1, n2):
-    n1 = int(input("Primeiro número que deseja somar: "))
-    n2 = int(input("Segundo número que deseja somar: "))
-    resultado = n1 + n2
-    print(f"{n1} + {n2} = {resultado}")
-
-def subtracao_inteiro(n1, n2):
-    n1 = int(input("Primeiro número que deseja subtrair: "))
-    n2 = int(input("Segundo número que deseja subtrair: "))
-    resultado = n1 - n2
-    print(f"{n1} - {n2} = {resultado}")
-
-def divisao_inteiro(n1, n2):
-    n1 = int(input("Primeiro número que deseja dividir: "))
-    n2 = int(input("Segundo número que deseja dividir: "))
-    resultado = n1 / n2
-    print(f"{n1} / {n2} = {resultado}")
-
-def multiplicacao_inteiro(n1, n2):
-    n1 = int(input("Primeiro número que deseja multiplicar: "))
-    n2 = int(input("Segundo número que deseja multiplicar: "))
-    resultado = n1 * n2
-    print(f"{n1} * {n2} = {resultado}")
+# Remover o print das funções
+# Remover todas a funções desnecessarias de soma inteiro
 
 def soma_decimal(n1, n2):
-    n1 = float(input("Primeiro número que deseja somar: "))
-    n2 = float(input("Segundo número que deseja somar: "))
     resultado = n1 + n2
-    print(f"{n1} + {n2} = {resultado:.2f}")
+    return resultado
 
 def subtracao_decimal(n1, n2):
-    n1 = float(input("Primeiro número que deseja subtrair: "))
-    n2 = float(input("Segundo número que deseja subtrair: "))
     resultado = n1 - n2
-    print(f"{n1} - {n2} = {resultado:.2f}")
+    return resultado
 
 def divisao_decimal(n1, n2):
-    n1 = float(input("Primeiro número que deseja dividir: "))
-    n2 = float(input("Segundo número que deseja dividir: "))
     resultado = n1 / n2
-    print(f"{n1} / {n2} = {resultado:.2f}")
+    return resultado
 
 def multiplicacao_decimal(n1, n2):
-    n1 = float(input("Primeiro número que deseja multiplicar: "))
-    n2 = float(input("Segundo número que deseja multiplicar: "))
     resultado = n1 / n2
-    print(f"{n1} / {n2} = {resultado:.2f}")
-
-
-
+    return resultado
 
 while True:
-
-    print("Olá, antes de tudo, deseja calcular números inteiros ou números decimais? [int/dec]")
-    escolha_numero = input(" ")
-
-    if escolha_numero == "int":
+    
         print("Olá como você deseja calcular?")
-        print("A) Somar", "B) Subtrair", "C) Dividir", "D) Multiplicar")
+        print("A) Somar","B) Subtrair","C) Dividir","D) Multiplicar")
         
-        escolha_calculo = input(" ")
+        escolha_calculo = input("")
     
         if escolha_calculo == "A" or escolha_calculo == "a":
-            soma_inteiro(n1, n2)
+            n1 = float(input("Primeiro número que deseja somar: "))
+            n2 = float(input("Segundo número que deseja somar: "))
+            soma_decimal = soma_decimal(n1, n2)
+            print(f"{n1} + {n2} = {soma_decimal:.2f}")
     
         if escolha_calculo == "B" or escolha_calculo == "b":
-            subtracao_inteiro(n1, n2)
+            n1 = float(input("Primeiro número que deseja subtrair: "))
+            n2 = float(input("Segundo número que deseja subtrair: "))
+            sub_decimal = subtracao_decimal(n1, n2)
+            print(f"{n1} - {n2} = {sub_decimal:.2f}")
     
         if escolha_calculo == "C" or escolha_calculo == "c":
-            divisao_inteiro(n1, n2)
+            n1 = float(input("Primeiro número que deseja dividir: "))
+            n2 = float(input("Segundo número que deseja dividir: "))
+            div_decimal = divisao_decimal(n1, n2)
+            print(f"{n1} / {n2} = {div_decimal:.2f}")
+
     
         if escolha_calculo == "D" or escolha_calculo == "d":
-            multiplicacao_inteiro(n1, n2)
-    
-        continuar = input("\nDeseja calcular outro número? (s/n): ").strip().lower()
-        if continuar != "s":
-            print("Encerrando calculadora...")
-            break
-        else:
-            continue
-    else:
-        print("Olá como você deseja calcular?")
-        print("A) Somar", "B) Subtrair", "C) Dividir", "D) Multiplicar")
-        
-        escolha_calculo = input(" ")
-    
-        if escolha_calculo == "A" or escolha_calculo == "a":
-            soma_decimal(n1, n2)
-    
-        if escolha_calculo == "B" or escolha_calculo == "b":
-            subtracao_decimal(n1, n2)
-    
-        if escolha_calculo == "C" or escolha_calculo == "c":
-            divisao_decimal(n1, n2)
-    
-        if escolha_calculo == "D" or escolha_calculo == "d":
-            multiplicacao_decimal(n1, n2)
+            n1 = float(input("Primeiro número que deseja multiplicar: "))
+            n2 = float(input("Segundo número que deseja multiplicar: "))
+            multi_decimal = multiplicacao_decimal(n1, n2)
+            print(f"{n1} / {n2} = {multi_decimal:.2f}")
     
         continuar = input("\nDeseja calcular outro número? (s/n): ").strip().lower()
         if continuar != "s":
