@@ -1,64 +1,45 @@
 # Remover o print das funções
 # Remover todas a funções desnecessarias de soma inteiro
+def calculadora(conta):
+    operadores = ["+", "-", "*", "/"]
 
-def soma_decimal(n1, n2):
-    resultado = n1 + n2
-    return resultado
+    conta = conta.replace(" ","")
+    conta = conta.replace(",",".")
+    for i in conta:
+        if i in operadores:
+            operador = i
+            break
 
-def subtracao_decimal(n1, n2):
-    resultado = n1 - n2
-    return resultado
+    numeros = conta.split(operador)
 
-def divisao_decimal(n1, n2):
-    if n2 == 0:
-        resultado = "Não é possível dividir por zero"
-    else:
-        resultado = n1 / n2
-        resultado = round(resultado, 2)
-    return resultado
+    numeros[0] = float(numeros[0])
+    numeros[1] = float(numeros[1])
 
-def multiplicacao_decimal(n1, n2):
-    resultado = n1 * n2
-    return resultado
+    if "+" == operador:
+        total = numeros[0] + numeros[1]
+    elif "-" == operador:
+        total = numeros[0] - numeros[1]
+    elif "*" == operador:
+        total = numeros[0] * numeros[1]
+    elif "/" == operador:
+        if numeros[1] == 0:
+            return "Não é possível dividir por zero"
+        else:
+            total = numeros[0] / numeros[1]
+
+    return total, numeros[0], numeros[1], operador,
 
 while True:
+    conta = input("Digite aqui sua conta: ")
+    tudo = calculadora(conta)
+    if tudo == "Não é possível dividir por zero":
+        print(tudo)
+    else:
+        print(f"Resultado: {tudo[1]} {tudo[3]} {tudo[2]}= {round(tudo[0], 2)}")
     
-        print("Olá como você deseja calcular?")
-        print("+) Somar","-) Subtrair","/) Dividir","*) Multiplicar", "x) Sair")
-        
-        escolha_calculo = input("")
-    
-        if escolha_calculo == "+":
-            n1 = float(input("Primeiro número que deseja somar: "))
-            n2 = float(input("Segundo número que deseja somar: "))
-            soma_decimal = soma_decimal(n1, n2)
-            print(f"{n1} + {n2} = {soma_decimal}")
-    
-        elif escolha_calculo == "-":
-            n1 = float(input("Primeiro número que deseja subtrair: "))
-            n2 = float(input("Segundo número que deseja subtrair: "))
-            sub_decimal = subtracao_decimal(n1, n2)
-            print(f"{n1} - {n2} = {sub_decimal}")
-    
-        elif escolha_calculo == "/":
-            n1 = float(input("Primeiro número que deseja dividir: "))
-            n2 = float(input("Segundo número que deseja dividir: "))
-            div_decimal = divisao_decimal(n1, n2)
-            print(f"{n1} / {n2} = {div_decimal}")
-
-        elif escolha_calculo == "*":
-            n1 = float(input("Primeiro número que deseja multiplicar: "))
-            n2 = float(input("Segundo número que deseja multiplicar: "))
-            multi_decimal = multiplicacao_decimal(n1, n2)
-            print(f"{n1} * {n2} = {multi_decimal}")
-
-        elif escolha_calculo == "x" or escolha_calculo == "X":
-            print("Encerrando calculadora...")
-            break
-    
-        continuar = input("\nDeseja calcular outro número? (s/n): ").strip().lower()
-        if continuar != "s":
-            print("Encerrando calculadora...")
-            break
-        else:
-            continue
+    continuar = input("\nDeseja calcular outro número? (s/n): ").strip().lower()
+    if continuar != "s":
+        print("Encerrando calculadora...")
+        break
+    else:
+        continue
