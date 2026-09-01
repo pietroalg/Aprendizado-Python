@@ -1,17 +1,17 @@
 # Remover o print das funções
 # Remover todas a funções desnecessarias de soma inteiro
 def calculadora(conta):
-    operadores = ["+", "-", "*", "/"]
+    operadores = ["+", "-", "*", "/", "^"]
 
     conta = conta.replace(" ","")
     conta = conta.replace(",",".")
     for i in conta:
-        if i in operadores:
+        if i == operadores:
             operador = i
             break
 
     numeros = conta.split(operador)
-
+    
     numeros[0] = float(numeros[0])
     numeros[1] = float(numeros[1])
 
@@ -26,11 +26,13 @@ def calculadora(conta):
             return "Não é possível dividir por zero"
         else:
             total = numeros[0] / numeros[1]
+    elif operador == "^":
+            total = numeros[0] ** numeros[1]
 
-    return total, numeros[0], numeros[1], operador,
+    return total, numeros[0], numeros[1], operador
 
 while True:
-    conta = input("Digite aqui sua conta: ")
+    conta = str(input("Digite aqui sua conta: "))
     tudo = calculadora(conta)
     if tudo == "Não é possível dividir por zero":
         print(tudo)
